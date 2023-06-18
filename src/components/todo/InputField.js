@@ -1,7 +1,20 @@
 import { Box, Button, Input } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 
-function InputField() {
+function InputField({ onInputChange, onAddItem }) {
+  const [input, setInput] = useState("");
+
+  const inputChangeHandler = (e) => {
+    const value = e.target.value;
+    setInput(value);
+    onInputChange(value);
+  };
+  const clickHandler = (e) => {
+    onAddItem(input);
+    console.log(input);
+    setInput("");
+  };
+
   return (
     <Box
       display="flex"
@@ -24,6 +37,8 @@ function InputField() {
           boxShadow="9px 9px 18px #929292,
              -9px -9px 18px #ffffff"
           padding={6}
+          value={input}
+          onChange={inputChangeHandler}
         />
       </Box>
       <Box>
@@ -33,6 +48,7 @@ function InputField() {
           boxShadow="9px 9px 18px #929292,
              -9px -9px 18px #ffffff"
           padding={6}
+          onClick={clickHandler}
         >
           Add Items
         </Button>
