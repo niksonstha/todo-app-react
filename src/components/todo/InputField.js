@@ -9,9 +9,8 @@ function InputField({ onInputChange, onAddItem }) {
     setInput(value);
     onInputChange(value);
   };
-  const clickHandler = (e) => {
+  const clickHandler = () => {
     onAddItem(input);
-    console.log(input);
     setInput("");
   };
 
@@ -34,8 +33,8 @@ function InputField({ onInputChange, onAddItem }) {
           focusBorderColor="black"
           borderRadius="50px"
           background="#e0e0e0"
-          boxShadow="9px 9px 18px #929292,
-             -9px -9px 18px #ffffff"
+          boxShadow="inset 3px 3px 10px #a1a1a1,
+            inset -13px -13px 22px #ffffff"
           padding={6}
           value={input}
           onChange={inputChangeHandler}
